@@ -1,12 +1,20 @@
 #include "param.h"
 
-
+/**
+  监听端口号
+ * @brief port
+ */
 int Param::port = 8888;
-
+/**
+  用户名
+ * @brief user
+ */
 QString Param::user = "admin";
-
+/**
+  密码
+ * @brief pass
+ */
 QString Param::pass = "123456";
-
 /**
   网卡
  * @brief networkCard
@@ -37,16 +45,13 @@ QString Param::domain = "";
   认证方式 1无需认证 2需要认证用户密码
  * @brief isLog
  */
-SocksAuthEnum Param::authMode  = SocksAuthEnum::USERPASS;
+Socks5AuthEnum Param::authMode  = Socks5AuthEnum::USERPASS;
 
 /**
   Log日志是否输出
  * @brief isLog
  */
 bool Param::isLog  = true;
-
-
-
 
 void Param::Init(int argc, char *argv[]){
     for(int i=0;i<argc;i++){
@@ -68,7 +73,7 @@ void Param::Init(int argc, char *argv[]){
         }
         //认证方式
         if(p.contains("-authmode=")||p.contains("-amode=")){
-            Param::authMode = p.split("=")[1].toInt();
+            Param::authMode = (Socks5AuthEnum)p.split("=")[1].toInt();
             qWarning()<<"passwd:"<<Param::authMode;
         }
         //打印日志在txt文本

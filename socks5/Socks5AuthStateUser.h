@@ -22,13 +22,25 @@ public:
 
     QByteArray password;
 
+    /**
+     * 解析socks5客户端数据
+     * @brief parse
+     * @param byte
+     * @param error
+     */
     void parse(QByteArray& byte,QString& error);
 
+    /**
+      返回socks5成功数据
+     */
     QByteArray toByte();
 signals:
 
 public slots:
-
+    /**
+      用户认证的客户端接受数据
+     * @brief authStateUserSocks5
+     */
     void authStateUserSocks5();
 };
 

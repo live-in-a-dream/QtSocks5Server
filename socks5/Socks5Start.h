@@ -15,6 +15,11 @@ class Socks5Start : public QObject
 public:
     explicit Socks5Start(QObject *parent = nullptr);
 
+    /**
+      启动运行
+     * @brief start
+     * @param port
+     */
     void start(qint16 port);
 
 private:
@@ -22,11 +27,23 @@ private:
 signals:
 
 public slots:
-    //监听连接
+    /**
+      监听连接
+     * @brief listingSocks5Connect
+     */
     void listingSocks5Connect();
 
+    /**
+      连接断开
+     * @brief localSocketDisconnected
+     */
     void localSocketDisconnected();
 
+    /**
+      连接错误
+     * @brief localSocketError
+     * @param error
+     */
     void localSocketError(QAbstractSocket::SocketError error);
 };
 

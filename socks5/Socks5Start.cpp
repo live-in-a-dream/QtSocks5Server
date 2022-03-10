@@ -6,6 +6,11 @@ Socks5Start::Socks5Start(QObject *parent) : QObject(parent)
 
 }
 
+/**
+  启动运行
+ * @brief start
+ * @param port
+ */
 void Socks5Start::start(qint16 port){
     server = new QTcpServer;
 
@@ -18,7 +23,10 @@ void Socks5Start::start(qint16 port){
     connect(server,SIGNAL(newConnection()),this,SLOT(listingSocks5Connect()));
 }
 
-
+/**
+  监听连接
+ * @brief listingSocks5Connect
+ */
 void Socks5Start::listingSocks5Connect(){
     QTcpServer * server = (QTcpServer *)sender();
     if(!server->hasPendingConnections()){
@@ -36,12 +44,21 @@ void Socks5Start::listingSocks5Connect(){
     connect(localSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(localSocketError(QAbstractSocket::SocketError)));
 }
 
+/**
+  连接断开
+ * @brief localSocketDisconnected
+ */
 void Socks5Start::localSocketDisconnected(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
     localSocket->deleteLater();
 }
 
+/**
+  连接错误
+ * @brief localSocketError
+ * @param error
+ */
 void Socks5Start::localSocketError(QAbstractSocket::SocketError error){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
     qWarning()<<this<<error;

@@ -5,7 +5,10 @@ Socks5AuthState::Socks5AuthState(QObject *parent) : QObject(parent)
     setObjectName("Socks5AuthState");
 }
 
-
+/**
+  认证最后一步的数据接受
+ * @brief authStateSocks5
+ */
 void Socks5AuthState::authStateSocks5(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
@@ -27,7 +30,7 @@ void Socks5AuthState::authStateSocks5(){
         return;
     }
 
-    if(!methods.contains(SocksAuthEnum::USERPASS) && !methods.contains(SocksAuthEnum::NOT_AUTH)){
+    if(!methods.contains(Socks5AuthEnum::USERPASS) && !methods.contains(Socks5AuthEnum::NOT_AUTH)){
         qWarning()<<"不支持其他加密方式:"<<version;
         return;
     }
@@ -35,16 +38,16 @@ void Socks5AuthState::authStateSocks5(){
     //
     QByteArray buff;
 
-    if(Param::authMode == SocksAuthEnum::NOT_AUTH){
-        buff = toByte(SocksAuthEnum::NOT_AUTH);
+    if(Param::authMode == Socks5AuthEnum::NOT_AUTH){
+        buff = toByte(Socks5AuthEnum::NOT_AUTH);
 
         Socks5AuthStateed * socks5AuthStateed = new Socks5AuthStateed(localSocket);
 
         connect(localSocket,SIGNAL(readyRead()),socks5AuthStateed,SLOT(authStateedSocks5()));
     }
     //用户密码验证
-    else if(Param::authMode == SocksAuthEnum::USERPASS){
-        buff = toByte(SocksAuthEnum::USERPASS);
+    else if(Param::authMode == Socks5AuthEnum::USERPASS){
+        buff = toByte(Socks5AuthEnum::USERPASS);
 
         Socks5AuthStateUser * socks5AuthStateUser = new Socks5AuthStateUser(localSocket);
 
@@ -55,6 +58,12 @@ void Socks5AuthState::authStateSocks5(){
     localSocket->waitForBytesWritten();
 }
 
+/**
+ * 解析socks5客户端数据
+ * @brief parse
+ * @param byte
+ * @param error
+ */
 void Socks5AuthState::parse(QByteArray& byte,QString& error){
     if(byte.length() < 3){
         error = "协议长度不正确";
@@ -70,8 +79,10 @@ void Socks5AuthState::parse(QByteArray& byte,QString& error){
     }
 }
 
-
-QByteArray Socks5AuthState::toByte(SocksAuthEnum socksAuthEnum){
+/**
+  返回socks5成功数据
+ */
+QByteArray Socks5AuthState::toByte(Socks5AuthEnum socksAuthEnum){
     QByteArray byte;
     byte.append((char)version);
     byte.append((char)socksAuthEnum);

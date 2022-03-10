@@ -5,6 +5,10 @@ Socks5AuthStateUser::Socks5AuthStateUser(QObject *parent) : QObject(parent)
     setObjectName("Socks5AuthStateUser");
 }
 
+/**
+  用户认证的客户端接受数据
+ * @brief authStateUserSocks5
+ */
 void Socks5AuthStateUser::authStateUserSocks5(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
@@ -47,7 +51,12 @@ void Socks5AuthStateUser::authStateUserSocks5(){
     localSocket->waitForBytesWritten();
 }
 
-
+/**
+ * 解析socks5客户端数据
+ * @brief parse
+ * @param byte
+ * @param error
+ */
 void Socks5AuthStateUser::parse(QByteArray& byte,QString& error){
     if(byte.length() < 5){
         error = "用户认证长度不足";
@@ -81,6 +90,9 @@ void Socks5AuthStateUser::parse(QByteArray& byte,QString& error){
     qDebug()<<"用户密码:"<<user<<"---"<<password;
 }
 
+/**
+  返回socks5成功数据
+ */
 QByteArray Socks5AuthStateUser::toByte(){
     QByteArray byte;
     byte.append((char)0x01);

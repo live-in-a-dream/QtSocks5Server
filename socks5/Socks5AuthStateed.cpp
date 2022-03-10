@@ -5,6 +5,10 @@ Socks5AuthStateed::Socks5AuthStateed(QObject *parent) : QObject(parent)
     setObjectName("Socks5AuthStateed");
 }
 
+/**
+  客户端发送的数据接受槽
+ * @brief authStateedSocks5
+ */
 void Socks5AuthStateed::authStateedSocks5(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
@@ -38,23 +42,9 @@ void Socks5AuthStateed::authStateedSocks5(){
 
         Socks5Connected * socks5Connected = new Socks5Connected(remtoSocket);
 
-        connect(localSocket,SIGNAL(readyRead()),socks5Connected,SLOT(connectSocks5ReadyRead()));
-        connect(remtoSocket,SIGNAL(disconnected()),socks5Connected,SLOT(connectSocks5Disconnected()));
-        connect(remtoSocket,SIGNAL(readyRead()),socks5Connected,SLOT(remtoSocketReadyRead()));
-        connect(remtoSocket,SIGNAL(connected()),socks5Connected,SLOT(remtoSocketConnected()));
-        connect(remtoSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(remtoSocketError(QAbstractSocket::SocketError)));
+        socks5Connected->Run();
 
-        //绑定
-        if(outAddress.toString() != "0.0.0.0"){
-            //linux
-            //ip address add 192.168.1.254/24 dev eth0
-            QString strCmd = QString("ip address add %1/24 dev %2").arg(outAddress.toString()).arg(Param::networkCard) ;
-            QProcess::startDetached(strCmd);
 
-            remtoSocket->bind(outAddress);
-        }
-
-        remtoSocket->connectToHost(address,port);
     }else if(command == Socks5Command::Bind){
         qWarning()<<this<<"不支持命令:Bind";
     }else if(command == Socks5Command::UDPAssociate){
@@ -68,47 +58,19 @@ void Socks5AuthStateed::authStateedSocks5(){
 
         Socks5UDPConnection * socks5UDPConnection = new Socks5UDPConnection(remtoSocket);
 
-        connect(remtoSocket,SIGNAL(disconnected()),socks5UDPConnection,SLOT(udpSocks5Disconnected()));
-        connect(localSocket,SIGNAL(readyRead()),socks5UDPConnection,SLOT(udpSocks5ReadyRead()));
-        connect(remtoSocket,SIGNAL(readyRead()),socks5UDPConnection,SLOT(remtoSocketReadyRead()));
-        connect(remtoSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(udpSocketError(QAbstractSocket::SocketError)));
+        socks5UDPConnection->Run();
 
-        //绑定
-        if(outAddress.toString() != "0.0.0.0"){
-            //linux
-            //ip address add 192.168.1.254/24 dev eth0
-            QString strCmd = QString("ip address add %1/24 dev %2").arg(outAddress.toString()).arg(Param::networkCard) ;
-            QProcess::startDetached(strCmd);
-
-            remtoSocket->bind(outAddress);
-        }else{
-            remtoSocket->bind(QHostAddress::Any);
-        }
-
-        qWarning()<<this<<"UDP:"<<remtoSocket->localAddress().toString()<<"---"<<remtoSocket->localPort();
-
-        QByteArray buff = toByte(remtoSocket->peerAddress(),remtoSocket->peerPort());
-        localSocket->write(buff,buff.length());
-        localSocket->waitForBytesWritten();
     }else{
         qWarning()<<this<<"不支持命令:"<<command;
     }
 }
 
-
-
-void Socks5AuthStateed::remtoSocketError(QAbstractSocket::SocketError){
-    QTcpSocket * remtoSocket = (QTcpSocket *)sender();
-    qWarning()<<this<<error;
-    remtoSocket->disconnected();
-}
-
-void Socks5AuthStateed::udpSocketError(QAbstractSocket::SocketError){
-    QUdpSocket * remtoSocket = (QUdpSocket *)sender();
-    qWarning()<<this<<error;
-    remtoSocket->disconnected();
-}
-
+/**
+ * 解析socks5客户端数据
+ * @brief parse
+ * @param byte
+ * @param error
+ */
 void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
 
     QDataStream stream(&bytes,QIODevice::ReadOnly);
@@ -189,6 +151,13 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
     qDebug()<<this<<"IP:"<<address<<"---"<<port<<"----"<<outAddress;
 }
 
+/**
+  返回socks5成功数据
+ * @brief toByte
+ * @param ip
+ * @param port
+ * @return
+ */
 QByteArray Socks5AuthStateed::toByte(QHostAddress ip,qint16 port){
     QByteArray byte;
     byte.append((char)version);

@@ -5,19 +5,31 @@
 #include "qDebug"
 #include "QString"
 
+/**
+  socks版本
+ * @brief The SocksVersion enum
+ */
 enum SocksVersion
 {
    SOCKS5 = 0x05,
    SOCKS4 = 0x04
 };
 
-enum SocksAuthEnum
+/**
+  socks5认证方式
+ * @brief The SocksAuthEnum enum
+ */
+enum Socks5AuthEnum
 {
     NOT_AUTH = 0x00,
     GSSAPI = 0x01,
     USERPASS = 0x02
 };
 
+/**
+  socks5命令
+ * @brief The Socks5Command enum
+ */
 enum Socks5Command
 {
     Connect = 0x01,
@@ -25,6 +37,10 @@ enum Socks5Command
     UDPAssociate = 0x03
 };
 
+/**
+  socks5地址类型
+ * @brief The Socks5Command enum
+ */
 enum Socks5AddressType
 {
     IPV4 = 0x01,
@@ -83,7 +99,7 @@ public:
       认证方式 1无需认证 2需要认证用户密码
      * @brief isLog
      */
-    static SocksAuthEnum authMode;
+    static Socks5AuthEnum authMode;
 
     /**
       Log日志是否输出

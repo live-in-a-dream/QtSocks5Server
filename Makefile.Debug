@@ -217,6 +217,9 @@ debug/moc_Socks5AuthState.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject 
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
 		socks5/Socks5AuthState.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -224,7 +227,6 @@ debug/moc_Socks5AuthState.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject 
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		socks5/Socks5AuthState.h \
 		debug/moc_predefs.h \
 		D:/QT5.9.0/5.9/mingw53_32/bin/moc.exe
@@ -305,6 +307,9 @@ debug/moc_Socks5Start.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -312,7 +317,6 @@ debug/moc_Socks5Start.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		socks5/Socks5Start.h \
 		debug/moc_predefs.h \
 		D:/QT5.9.0/5.9/mingw53_32/bin/moc.exe
@@ -394,6 +398,8 @@ debug/moc_Socks5AuthStateUser.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObj
 		socks5/Socks5AuthState.h \
 		socks5/Socks5AuthStateUser.h \
 		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -482,13 +488,15 @@ debug/moc_Socks5AuthStateed.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObjec
 		socks5/Socks5AuthStateUser.h \
 		socks5/Socks5AuthStateed.h \
 		socks5/Socks5Connected.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		socks5/Socks5AuthStateed.h \
 		debug/moc_predefs.h \
 		D:/QT5.9.0/5.9/mingw53_32/bin/moc.exe
@@ -569,6 +577,9 @@ debug/moc_Socks5Connected.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject 
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -576,7 +587,6 @@ debug/moc_Socks5Connected.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObject 
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		socks5/Socks5Connected.h \
 		debug/moc_predefs.h \
 		D:/QT5.9.0/5.9/mingw53_32/bin/moc.exe
@@ -657,6 +667,9 @@ debug/moc_Socks5UDPConnection.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObj
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -664,7 +677,6 @@ debug/moc_Socks5UDPConnection.cpp: D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QObj
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		socks5/Socks5UDPConnection.h \
 		debug/moc_predefs.h \
 		D:/QT5.9.0/5.9/mingw53_32/bin/moc.exe
@@ -763,6 +775,9 @@ debug/main.o: main.cpp D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QCoreApplication
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -770,9 +785,7 @@ debug/main.o: main.cpp D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QCoreApplication
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QMap \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/utils.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QList \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QSettings \
@@ -842,7 +855,23 @@ debug/param.o: param.cpp param.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qmetatype.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qobject_impl.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qobject_impl.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdebug.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qhash.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qmap.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qtextstream.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qiodevice.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qlocale.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvariant.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qshareddata.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvector.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qpoint.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qset.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/param.o param.cpp
 
 debug/Socks5AuthState.o: socks5/Socks5AuthState.cpp socks5/Socks5AuthState.h \
@@ -920,14 +949,16 @@ debug/Socks5AuthState.o: socks5/Socks5AuthState.cpp socks5/Socks5AuthState.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Socks5AuthState.o socks5/Socks5AuthState.cpp
 
 debug/Socks5Start.o: socks5/Socks5Start.cpp socks5/Socks5Start.h \
@@ -1006,14 +1037,16 @@ debug/Socks5Start.o: socks5/Socks5Start.cpp socks5/Socks5Start.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Socks5Start.o socks5/Socks5Start.cpp
 
 debug/Socks5AuthStateUser.o: socks5/Socks5AuthStateUser.cpp socks5/Socks5AuthStateUser.h \
@@ -1091,14 +1124,16 @@ debug/Socks5AuthStateUser.o: socks5/Socks5AuthStateUser.cpp socks5/Socks5AuthSta
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
 		socks5/Socks5AuthState.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Socks5AuthStateUser.o socks5/Socks5AuthStateUser.cpp
 
 debug/Socks5AuthStateed.o: socks5/Socks5AuthStateed.cpp socks5/Socks5AuthStateed.h \
@@ -1177,6 +1212,8 @@ debug/Socks5AuthStateed.o: socks5/Socks5AuthStateed.cpp socks5/Socks5AuthStateed
 		socks5/Socks5AuthState.h \
 		socks5/Socks5AuthStateUser.h \
 		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
@@ -1262,13 +1299,15 @@ debug/Socks5Connected.o: socks5/Socks5Connected.cpp socks5/Socks5Connected.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5UDPConnection.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Socks5Connected.o socks5/Socks5Connected.cpp
 
 debug/Socks5UDPConnection.o: socks5/Socks5UDPConnection.cpp socks5/Socks5UDPConnection.h \
@@ -1347,13 +1386,15 @@ debug/Socks5UDPConnection.o: socks5/Socks5UDPConnection.cpp socks5/Socks5UDPConn
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QUdpSocket \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qudpsocket.h \
 		socks5/Socks5Connected.h \
+		param.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QString \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QDataStream \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdatastream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/QHostInfo \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtNetwork/qhostinfo.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QProcess \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h \
-		param.h
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Socks5UDPConnection.o socks5/Socks5UDPConnection.cpp
 
 debug/utils.o: socks5/utils.cpp socks5/utils.h \
@@ -1407,15 +1448,14 @@ debug/utils.o: socks5/utils.cpp socks5/utils.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvarlengtharray.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qcontainerfwd.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qobject_impl.h \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QSettings \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsettings.h \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvariant.h \
-		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qmap.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qDebug \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qdebug.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qhash.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qmap.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qtextstream.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qiodevice.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qlocale.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvariant.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qshareddata.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qvector.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qpoint.h \
@@ -1423,6 +1463,8 @@ debug/utils.o: socks5/utils.cpp socks5/utils.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qcontiguouscache.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsharedpointer.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsharedpointer_impl.h \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QSettings \
+		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qsettings.h \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QMutex \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/QJsonDocument \
 		D:/QT5.9.0/5.9/mingw53_32/include/QtCore/qjsondocument.h \

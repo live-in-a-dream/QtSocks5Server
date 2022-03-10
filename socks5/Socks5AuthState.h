@@ -20,12 +20,25 @@ public:
 
     QList<qint8> methods;
 
+    /**
+     * 解析socks5客户端数据
+     * @brief parse
+     * @param byte
+     * @param error
+     */
     void parse(QByteArray& byte,QString& error);
 
-    QByteArray toByte(SocksAuthEnum socksAuthEnum);
+    /**
+      返回socks5成功数据
+     */
+    QByteArray toByte(Socks5AuthEnum socksAuthEnum);
 signals:
 
 public slots:
+    /**
+      认证最后一步的数据接受
+     * @brief authStateSocks5
+     */
     void authStateSocks5();
 };
 

@@ -32,19 +32,29 @@ public:
 
     QHostAddress outAddress;
 
+    /**
+     * 解析socks5客户端数据
+     * @brief parse
+     * @param byte
+     * @param error
+     */
     void parse(QByteArray& byte,QString& error);
 
+    /**
+      返回socks5成功数据
+     * @brief toByte
+     * @param ip
+     * @param port
+     * @return
+     */
     QByteArray toByte(QHostAddress ip,qint16 port);
 signals:
 
 public slots:
-
-    void connectSocks5Disconnected();
-
-    void remtoSocketError(QAbstractSocket::SocketError);
-
-    void udpSocketError(QAbstractSocket::SocketError);
-
+    /**
+      客户端发送的数据接受槽
+     * @brief authStateedSocks5
+     */
     void authStateedSocks5();
 
 };

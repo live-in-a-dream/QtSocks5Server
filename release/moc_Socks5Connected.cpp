@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Socks5Connected_t {
-    QByteArrayData data[5];
-    char stringdata0[82];
+    QByteArrayData data[8];
+    char stringdata0[159];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,17 @@ QT_MOC_LITERAL(0, 0, 15), // "Socks5Connected"
 QT_MOC_LITERAL(1, 16, 20), // "remtoSocketConnected"
 QT_MOC_LITERAL(2, 37, 0), // ""
 QT_MOC_LITERAL(3, 38, 20), // "remtoSocketReadyRead"
-QT_MOC_LITERAL(4, 59, 22) // "connectSocks5ReadyRead"
+QT_MOC_LITERAL(4, 59, 30), // "connectRemtoSocks5Disconnected"
+QT_MOC_LITERAL(5, 90, 16), // "remtoSocketError"
+QT_MOC_LITERAL(6, 107, 28), // "QAbstractSocket::SocketError"
+QT_MOC_LITERAL(7, 136, 22) // "connectSocks5ReadyRead"
 
     },
     "Socks5Connected\0remtoSocketConnected\0"
-    "\0remtoSocketReadyRead\0connectSocks5ReadyRead"
+    "\0remtoSocketReadyRead\0"
+    "connectRemtoSocks5Disconnected\0"
+    "remtoSocketError\0QAbstractSocket::SocketError\0"
+    "connectSocks5ReadyRead"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +55,7 @@ static const uint qt_meta_data_Socks5Connected[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,13 +63,17 @@ static const uint qt_meta_data_Socks5Connected[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x0a /* Public */,
-       3,    0,   30,    2, 0x0a /* Public */,
-       4,    0,   31,    2, 0x0a /* Public */,
+       1,    0,   39,    2, 0x0a /* Public */,
+       3,    0,   40,    2, 0x0a /* Public */,
+       4,    0,   41,    2, 0x0a /* Public */,
+       5,    1,   42,    2, 0x0a /* Public */,
+       7,    0,   45,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 6,    2,
     QMetaType::Void,
 
        0        // eod
@@ -77,11 +87,23 @@ void Socks5Connected::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         switch (_id) {
         case 0: _t->remtoSocketConnected(); break;
         case 1: _t->remtoSocketReadyRead(); break;
-        case 2: _t->connectSocks5ReadyRead(); break;
+        case 2: _t->connectRemtoSocks5Disconnected(); break;
+        case 3: _t->remtoSocketError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
+        case 4: _t->connectSocks5ReadyRead(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QAbstractSocket::SocketError >(); break;
+            }
+            break;
+        }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObject Socks5Connected::staticMetaObject = {
@@ -109,13 +131,13 @@ int Socks5Connected::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        if (_id < 5)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 5;
     }
     return _id;
 }
