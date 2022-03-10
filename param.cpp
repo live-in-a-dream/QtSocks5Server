@@ -3,9 +3,9 @@
 
 int Param::port = 8888;
 
-QString Param::user = "shandian";
+QString Param::user = "admin";
 
-QString Param::pass = "Divi@159753";
+QString Param::pass = "123456";
 
 /**
   网卡

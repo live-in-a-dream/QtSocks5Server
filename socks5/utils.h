@@ -14,16 +14,10 @@
 #include "QCoreApplication"
 #include "QProcess"
 #include "QCryptographicHash"
-#include "qt_windows.h"
 #include "QProcess"
 #include <tlhelp32.h>
-#include "qt_windows.h"
 #include <Psapi.h>
 #include "QDateTime"
-//端口号取值范围【0-65535】，其中1023以前预留给了常用应用程序
-//一般在1024之后取端口号
-#define PORT_DOWN 1024	//起始端口号
-#define PORT_UP 65535	//终止端口号
 
 //判断字符串是空和空串
 bool isEmptySting(QString str);
