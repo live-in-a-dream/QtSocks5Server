@@ -5,7 +5,6 @@ Socks5UDPConnection::Socks5UDPConnection(QObject *parent) : QObject(parent)
 
 }
 
-
 void Socks5UDPConnection::udpSocks5ReadyRead(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
@@ -32,4 +31,10 @@ void Socks5UDPConnection::remtoSocketReadyRead(){
 
     localSocket->write(byte,byte.length());
     localSocket->waitForBytesWritten();
+}
+
+void Socks5UDPConnection::udpSocks5Disconnected(){
+    QUdpSocket * remtoSocket = (QUdpSocket *)sender();
+
+    remtoSocket->deleteLater();
 }

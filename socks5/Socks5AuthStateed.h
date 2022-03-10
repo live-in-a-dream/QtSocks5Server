@@ -40,7 +40,11 @@ signals:
 public slots:
 
     void connectSocks5Disconnected();
-    void udpSocks5Disconnected();
+
+    void remtoSocketError(QAbstractSocket::SocketError);
+
+    void udpSocketError(QAbstractSocket::SocketError);
+
     void authStateedSocks5();
 
 };

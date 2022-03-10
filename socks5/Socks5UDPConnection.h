@@ -19,6 +19,7 @@ signals:
 public slots:
     void udpSocks5ReadyRead();
     void remtoSocketReadyRead();
+    void udpSocks5Disconnected();
 };
 
 #endif // SOCKS5UDPCONNECTION_H

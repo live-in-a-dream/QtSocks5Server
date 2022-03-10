@@ -30,18 +30,20 @@ void Socks5Start::listingSocks5Connect(){
     Socks5AuthState * socks5AuthState = new Socks5AuthState(localSocket);
     //销毁
     connect(localSocket,SIGNAL(disconnected()),this,SLOT(localSocketDisconnected()));
-    //
+    //读取
     connect(localSocket,SIGNAL(readyRead()),socks5AuthState,SLOT(authStateSocks5()));
+    //错误
+    connect(localSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(localSocketError(QAbstractSocket::SocketError)));
 }
 
 void Socks5Start::localSocketDisconnected(){
     QTcpSocket * localSocket = (QTcpSocket *)sender();
 
-    QList<QObject*> objs = localSocket->findChildren<QObject*>();
-
-    for(int i=0;i<objs.size();i++){
-        objs.at(i)->deleteLater();
-    }
-
     localSocket->deleteLater();
+}
+
+void Socks5Start::localSocketError(QAbstractSocket::SocketError error){
+    QTcpSocket * localSocket = (QTcpSocket *)sender();
+    qWarning()<<this<<error;
+    localSocket->disconnected();
 }

@@ -18,6 +18,7 @@ public slots:
     void remtoSocketConnected();
     void remtoSocketReadyRead();
     void connectSocks5ReadyRead();
+    void connectSocks5Disconnected();
 };
 
 #endif // SOCKS5CONNECTED_H

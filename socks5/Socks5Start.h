@@ -26,6 +26,8 @@ public slots:
     void listingSocks5Connect();
 
     void localSocketDisconnected();
+
+    void localSocketError(QAbstractSocket::SocketError error);
 };
 
 #endif // SOCKS5START_H

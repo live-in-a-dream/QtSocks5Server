@@ -22,6 +22,12 @@ void Socks5Connected::connectSocks5ReadyRead(){
     remtoSocket->waitForBytesWritten();
 }
 
+void Socks5AuthStateed::connectSocks5Disconnected(){
+    QTcpSocket * remtoSocket = (QTcpSocket *)sender();
+
+    remtoSocket->deleteLater();
+}
+
 void Socks5Connected::remtoSocketConnected(){
     QTcpSocket * remtoSocket = (QTcpSocket *)sender();
 

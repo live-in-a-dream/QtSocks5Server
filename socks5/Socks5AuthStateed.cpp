@@ -18,12 +18,12 @@ void Socks5AuthStateed::authStateedSocks5(){
     parse(byte,error);
 
     if(!error.isEmpty()){
-        qDebug()<<"authStateedSocks5:"<<error;
+        qDebug()<<this<<error;
         return;
     }
 
     if(version != SocksVersion::SOCKS5){
-        qWarning()<<"不支持其他协议:"<<version;
+        qWarning()<<this<<"不支持其他协议:"<<version;
         return;
     }
 
@@ -38,10 +38,11 @@ void Socks5AuthStateed::authStateedSocks5(){
 
         Socks5Connected * socks5Connected = new Socks5Connected(remtoSocket);
 
-        connect(remtoSocket,SIGNAL(disconnected()),this,SLOT(connectSocks5Disconnected()));
         connect(localSocket,SIGNAL(readyRead()),socks5Connected,SLOT(connectSocks5ReadyRead()));
+        connect(remtoSocket,SIGNAL(disconnected()),socks5Connected,SLOT(connectSocks5Disconnected()));
         connect(remtoSocket,SIGNAL(readyRead()),socks5Connected,SLOT(remtoSocketReadyRead()));
         connect(remtoSocket,SIGNAL(connected()),socks5Connected,SLOT(remtoSocketConnected()));
+        connect(remtoSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(remtoSocketError(QAbstractSocket::SocketError)));
 
         //绑定
         if(outAddress.toString() != "0.0.0.0"){
@@ -53,13 +54,9 @@ void Socks5AuthStateed::authStateedSocks5(){
             remtoSocket->bind(outAddress);
         }
 
-
-
         remtoSocket->connectToHost(address,port);
-
     }else if(command == Socks5Command::Bind){
-
-        qWarning()<<"不支持命令:Bind";
+        qWarning()<<this<<"不支持命令:Bind";
     }else if(command == Socks5Command::UDPAssociate){
         QUdpSocket * remtoSocket = new QUdpSocket(localSocket);
 
@@ -71,9 +68,10 @@ void Socks5AuthStateed::authStateedSocks5(){
 
         Socks5UDPConnection * socks5UDPConnection = new Socks5UDPConnection(remtoSocket);
 
-        connect(remtoSocket,SIGNAL(disconnected()),this,SLOT(udpSocks5Disconnected()));
+        connect(remtoSocket,SIGNAL(disconnected()),socks5UDPConnection,SLOT(udpSocks5Disconnected()));
         connect(localSocket,SIGNAL(readyRead()),socks5UDPConnection,SLOT(udpSocks5ReadyRead()));
         connect(remtoSocket,SIGNAL(readyRead()),socks5UDPConnection,SLOT(remtoSocketReadyRead()));
+        connect(remtoSocket,SIGNAL(error(QAbstractSocket::SocketError)),this,SLOT(udpSocketError(QAbstractSocket::SocketError)));
 
         //绑定
         if(outAddress.toString() != "0.0.0.0"){
@@ -87,27 +85,28 @@ void Socks5AuthStateed::authStateedSocks5(){
             remtoSocket->bind(QHostAddress::Any);
         }
 
-        qWarning()<<"UDP:"<<remtoSocket->localAddress().toString()<<"---"<<remtoSocket->localPort();
+        qWarning()<<this<<"UDP:"<<remtoSocket->localAddress().toString()<<"---"<<remtoSocket->localPort();
 
         QByteArray buff = toByte(remtoSocket->peerAddress(),remtoSocket->peerPort());
         localSocket->write(buff,buff.length());
         localSocket->waitForBytesWritten();
     }else{
-        qWarning()<<"不支持命令:"<<command;
-        return;
+        qWarning()<<this<<"不支持命令:"<<command;
     }
 }
 
-void Socks5AuthStateed::connectSocks5Disconnected(){
-    QTcpSocket * remtoSocket = (QTcpSocket *)sender();
 
-    remtoSocket->deleteLater();
+
+void Socks5AuthStateed::remtoSocketError(QAbstractSocket::SocketError){
+    QTcpSocket * remtoSocket = (QTcpSocket *)sender();
+    qWarning()<<this<<error;
+    remtoSocket->disconnected();
 }
 
-void Socks5AuthStateed::udpSocks5Disconnected(){
+void Socks5AuthStateed::udpSocketError(QAbstractSocket::SocketError){
     QUdpSocket * remtoSocket = (QUdpSocket *)sender();
-
-    remtoSocket->deleteLater();
+    qWarning()<<this<<error;
+    remtoSocket->disconnected();
 }
 
 void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
@@ -167,7 +166,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
             error = "域名错误";
             return;
         }
-        qDebug()<<"域名:"<<domainName;
+        qDebug()<<this<<"域名:"<<domainName;
     }else{
         error = "未知得地址类型";
         return;
@@ -187,7 +186,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
 
     stream.device()->close();
 
-    qDebug()<<"IP:"<<address<<"---"<<port<<"----"<<outAddress;
+    qDebug()<<this<<"IP:"<<address<<"---"<<port<<"----"<<outAddress;
 }
 
 QByteArray Socks5AuthStateed::toByte(QHostAddress ip,qint16 port){
