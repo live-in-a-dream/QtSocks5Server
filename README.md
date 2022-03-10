@@ -1,12 +1,12 @@
 # QtSocks5Server  
   
-支持:
+支持:  
 socks5。  
 用户密码验证  
 TCP。  
 UDP。  
-不支持:  
   
+不支持:  
 BIND。(无需求，修改了socks5协议，不影响正常使用。有兴趣的朋友可以自行添加。)  
 socks4。  
 http。  
