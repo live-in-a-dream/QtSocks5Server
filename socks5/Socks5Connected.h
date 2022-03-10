@@ -5,6 +5,7 @@
 #include "qtcpserver.h"
 #include "qtcpsocket.h"
 #include "Socks5AuthState.h"
+#include "param.h"
 class Socks5Connected : public QObject
 {
     Q_OBJECT

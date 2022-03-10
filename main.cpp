@@ -53,34 +53,18 @@ int main(int argc, char *argv[])
     //读取配置
     Utils::Instance()->ReadIni();
 
+    //socks5实例
     Socks5Start* s = new Socks5Start;
 
-    for(int i=0;i<argc;i++){
-        QString p(argv[i]);
-        if(p.contains("-port=") || p.contains("-p=")){
-            Param::port = p.split("=")[1].toInt();
-            qWarning()<<"port:"<<Param::port;
-        }
-        if(p.contains("-username=")||p.contains("-u=")){
-            Param::user = p.split("=")[1];
-            qWarning()<<"username:"<<Param::user;
-        }
-        if(p.contains("-passwd=")||p.contains("-pwd=")){
-            Param::pass = p.split("=")[1];
-            qWarning()<<"passwd:"<<Param::pass;
-        }
+    //初始化
+    Param::Init(argc,argv);
 
-        if(p.contains("-log=")){
-            Param::isLog = p.split("=")[1] == "1"?true:false;
-            qWarning()<<"isLog:"<<Param::isLog;
-        }
-    }
-
+    //日志
     if(Param::isLog){
         qInstallMessageHandler(outputMessage);
     }
 
+    //启动
     s->start(Param::port);
-
     return a.exec();
 }

@@ -122,7 +122,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
 
     stream>>addressType;
 
-    if(addressType == 0x01){
+    if(addressType == Socks5AddressType::IPV4){
         if (bytes.length() < 10){
             error = "IPV4长度不足";
             return;
@@ -134,7 +134,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
             error = "IPV4错误";
             return;
         }
-    }else if(addressType == 0x02){
+    }else if(addressType == Socks5AddressType::IPV6){
         quint8 * ipv6buf = new quint8[16];
         int read = stream.readRawData((char*)ipv6buf,16);
         if (read != 16){
@@ -148,7 +148,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
             error = "IPV6错误";
             return;
         }
-    }else if(addressType == 0x03){
+    }else if(addressType == Socks5AddressType::Domain){
         quint8 nameLengthByte;
         stream >> nameLengthByte;
         if (bytes.length() < 7 + nameLengthByte)
@@ -192,7 +192,7 @@ void Socks5AuthStateed::parse(QByteArray& bytes,QString& error){
 
 QByteArray Socks5AuthStateed::toByte(QHostAddress ip,qint16 port){
     QByteArray byte;
-    byte.append((char)0x05);
+    byte.append((char)version);
     byte.append((char)0x00);
 
     byte.append((char)0x01);

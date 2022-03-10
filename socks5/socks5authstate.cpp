@@ -27,17 +27,30 @@ void Socks5AuthState::authStateSocks5(){
         return;
     }
 
-    if(!methods.contains(0x02) && methods.contains(0x00)){
+    if(!methods.contains(SocksAuthEnum::USERPASS) && !methods.contains(SocksAuthEnum::NOT_AUTH)){
         qWarning()<<"不支持其他加密方式:"<<version;
         return;
     }
 
-    Socks5AuthStateUser * socks5AuthStateUser = new Socks5AuthStateUser(localSocket);
+    //
+    QByteArray buff;
 
-    connect(localSocket,SIGNAL(readyRead()),socks5AuthStateUser,SLOT(authStateUserSocks5()));
+    if(Param::authMode == SocksAuthEnum::NOT_AUTH){
+        buff = toByte(SocksAuthEnum::NOT_AUTH);
 
+        Socks5AuthStateed * socks5AuthStateed = new Socks5AuthStateed(localSocket);
+
+        connect(localSocket,SIGNAL(readyRead()),socks5AuthStateed,SLOT(authStateedSocks5()));
+    }
+    //用户密码验证
+    else if(Param::authMode == SocksAuthEnum::USERPASS){
+        buff = toByte(SocksAuthEnum::USERPASS);
+
+        Socks5AuthStateUser * socks5AuthStateUser = new Socks5AuthStateUser(localSocket);
+
+        connect(localSocket,SIGNAL(readyRead()),socks5AuthStateUser,SLOT(authStateUserSocks5()));
+    }
     //发送
-    QByteArray buff = toByte();
     localSocket->write(buff,buff.length());
     localSocket->waitForBytesWritten();
 }
@@ -58,9 +71,9 @@ void Socks5AuthState::parse(QByteArray& byte,QString& error){
 }
 
 
-QByteArray Socks5AuthState::toByte(){
+QByteArray Socks5AuthState::toByte(SocksAuthEnum socksAuthEnum){
     QByteArray byte;
-    byte.append((char)0x05);
-    byte.append((char)0x02);
+    byte.append((char)version);
+    byte.append((char)socksAuthEnum);
     return byte;
 }

@@ -11,25 +11,12 @@
 #include "QDataStream"
 #include "QHostInfo"
 #include "QProcess"
+#include "param.h"
 class Socks5AuthStateed : public QObject
 {
     Q_OBJECT
 public:
     explicit Socks5AuthStateed(QObject *parent = nullptr);
-
-    enum SocksVersion
-    {
-       SOCKS5 = 0x05,
-       SOCKS4 = 0x04
-    };
-
-    enum Socks5Command
-    {
-        Connect = 0x01,
-        Bind = 0x02,
-        UDPAssociate = 0x03
-    };
-
 
     qint8 version;
 

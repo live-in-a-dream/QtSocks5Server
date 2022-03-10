@@ -15,8 +15,6 @@
 #include "QProcess"
 #include "QCryptographicHash"
 #include "QProcess"
-#include <tlhelp32.h>
-#include <Psapi.h>
 #include "QDateTime"
 
 //判断字符串是空和空串

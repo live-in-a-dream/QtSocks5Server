@@ -6,10 +6,7 @@
 #include "qtcpsocket.h"
 #include <QPointer>
 #include "Socks5AuthState.h"
-
-
-
-
+#include "param.h"
 
 
 class Socks5Start : public QObject

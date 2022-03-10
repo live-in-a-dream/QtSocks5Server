@@ -6,16 +6,13 @@
 #include "qtcpsocket.h"
 #include <QPointer>
 #include "Socks5AuthStateUser.h"
+#include "param.h"
 class Socks5AuthState : public QObject
 {
     Q_OBJECT
 public:
     explicit Socks5AuthState(QObject *parent = nullptr);
-    enum SocksVersion
-    {
-       SOCKS5 = 0x05,
-       SOCKS4 = 0x04
-    };
+
 
     qint8 version;
 
@@ -25,7 +22,7 @@ public:
 
     void parse(QByteArray& byte,QString& error);
 
-    QByteArray toByte();
+    QByteArray toByte(SocksAuthEnum socksAuthEnum);
 signals:
 
 public slots:

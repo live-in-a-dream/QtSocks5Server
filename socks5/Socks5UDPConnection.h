@@ -6,6 +6,7 @@
 #include "qtcpsocket.h"
 #include "Socks5AuthState.h"
 #include "QUdpSocket"
+#include "param.h"
 class Socks5UDPConnection : public QObject
 {
     Q_OBJECT

@@ -29,9 +29,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
+#socks5实现
 INCLUDEPATH += $$PWD/socks5
+#工具
+INCLUDEPATH += $$PWD/tool
+
 include($$PWD/socks5/socks5.pri)
+include($$PWD/tool/tool.pri)
 
 HEADERS += \
     param.h
@@ -44,3 +48,6 @@ DEFINES += Qt_DEV
 
 #版本号  V1.0.0.0  手动设置   注：后面的等号不能有空格！！！
 DEFINES += LVERSION=\\\"V1.0.0.0\\\"
+
+DISTFILES += \
+    README.md
