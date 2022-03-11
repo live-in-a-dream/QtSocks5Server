@@ -8,10 +8,15 @@ INPUT(
 ./debug/Socks5Connected.o
 ./debug/Socks5UDPConnection.o
 ./debug/utils.o
+./debug/QAESEncryption.o
+./debug/DataEncry.o
+./debug/Config.o
+./debug/Enum.o
 ./debug/moc_Socks5AuthState.o
 ./debug/moc_Socks5Start.o
 ./debug/moc_Socks5AuthStateUser.o
 ./debug/moc_Socks5AuthStateed.o
 ./debug/moc_Socks5Connected.o
 ./debug/moc_Socks5UDPConnection.o
+./debug/moc_QAESEncryption.o
 );

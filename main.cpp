@@ -60,11 +60,11 @@ int main(int argc, char *argv[])
     Param::Init(argc,argv);
 
     //日志
-    if(Param::isLog){
+    if(Param::config->isLog){
         qInstallMessageHandler(outputMessage);
     }
 
     //启动
-    s->start(Param::port);
+    s->start(Param::config->port);
     return a.exec();
 }

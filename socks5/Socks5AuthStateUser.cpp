@@ -31,7 +31,8 @@ void Socks5AuthStateUser::authStateUserSocks5(){
         return;
     }
 
-    if(user != Param::user || password != Param::pass){
+
+    if(Param::config->userPass.value(user) != password){
         qDebug()<<"authStateUserSocks5:"<<"用户密码错误";
         return;
     }

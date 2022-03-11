@@ -8,10 +8,15 @@ INPUT(
 ./release/Socks5Connected.o
 ./release/Socks5UDPConnection.o
 ./release/utils.o
+./release/QAESEncryption.o
+./release/DataEncry.o
+./release/Config.o
+./release/Enum.o
 ./release/moc_Socks5AuthState.o
 ./release/moc_Socks5Start.o
 ./release/moc_Socks5AuthStateUser.o
 ./release/moc_Socks5AuthStateed.o
 ./release/moc_Socks5Connected.o
 ./release/moc_Socks5UDPConnection.o
+./release/moc_QAESEncryption.o
 );

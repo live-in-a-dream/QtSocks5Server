@@ -38,7 +38,7 @@ void Socks5AuthState::authStateSocks5(){
     //
     QByteArray buff;
 
-    if(Param::authMode == Socks5AuthEnum::NOT_AUTH){
+    if(Param::config->authMode == Socks5AuthEnum::NOT_AUTH){
         buff = toByte(Socks5AuthEnum::NOT_AUTH);
 
         Socks5AuthStateed * socks5AuthStateed = new Socks5AuthStateed(localSocket);
@@ -46,7 +46,7 @@ void Socks5AuthState::authStateSocks5(){
         connect(localSocket,SIGNAL(readyRead()),socks5AuthStateed,SLOT(authStateedSocks5()));
     }
     //用户密码验证
-    else if(Param::authMode == Socks5AuthEnum::USERPASS){
+    else if(Param::config->authMode == Socks5AuthEnum::USERPASS){
         buff = toByte(Socks5AuthEnum::USERPASS);
 
         Socks5AuthStateUser * socks5AuthStateUser = new Socks5AuthStateUser(localSocket);

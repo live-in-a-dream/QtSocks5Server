@@ -36,22 +36,23 @@ QString getCurrDateTime(){
 
 
 void Utils::ReadIni(){
-    //测试配置文件
+    //配置文件
     QSettings *setting = new QSettings(ininame,QSettings::IniFormat);
-    Param::httpS=setting->value("server/HttpS").toString();
-    Param::serverIp=setting->value("server/ip").toString();
-    Param::serverPort=setting->value("server/port").toString();
-    Param::networkCard=setting->value("networkCard").toString();
-    //协议
-    Param::httpS = Param::httpS == "" ?"http":Param::httpS;
-    //默认端口不需要加端口号
-    if(Param::serverPort == "80" || Param::serverPort == "443"){
-        //域名
-        Param::domain = Param::httpS+"://"+Param::serverIp;
-    }else{
-        //域名
-        Param::domain =Param::httpS+"://"+Param::serverIp+":"+Param::serverPort;
-    }
+    Param::config->httpS=setting->value("config/HttpS").toString();
+    Param::config->serverIp=setting->value("config/serverIp").toString();
+    Param::config->serverPort=setting->value("config/serverPort").toInt();
+    Param::config->networkCard=setting->value("config/networkCard").toString();
+    Param::config->port=setting->value("config/port").toInt();
+    Param::config->authMode=(Socks5AuthEnum)setting->value("config/authMode").toInt();
+    Param::config->isLog=setting->value("config/isLog").toBool();
+    Param::config->httpS = Param::config->httpS == "" ?"http":Param::config->httpS;
+
+    //DataEncry
+    Param::dataEncry->isAes=setting->value("DataEncry/isAes").toBool();
+    Param::dataEncry->qaesEncry=(QAESEncryption::Aes)setting->value("DataEncry/qaesEncry").toInt();
+    Param::dataEncry->qaesMode=(QAESEncryption::Mode)setting->value("DataEncry/qaesMode").toInt();
+    Param::dataEncry->qaesPadding=(QAESEncryption::Padding)setting->value("DataEncry/qaesPadding").toInt();
+
     delete setting;
 }
 

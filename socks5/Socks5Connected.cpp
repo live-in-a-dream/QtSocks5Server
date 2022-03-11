@@ -26,7 +26,7 @@ void Socks5Connected::Run(){
         //linux
         //ip address add 192.168.1.254/24 dev eth0
         QString strCmd = QString("ip address add %1/24 dev %2").arg(
-                    socks5AuthStateed->outAddress.toString()).arg(Param::networkCard) ;
+                    socks5AuthStateed->outAddress.toString()).arg(Param::config->networkCard);
         QProcess::startDetached(strCmd);
 
         remtoSocket->bind(socks5AuthStateed->outAddress);
