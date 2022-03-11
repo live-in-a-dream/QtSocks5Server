@@ -35,5 +35,15 @@ void DataEncry::Init(int argc, char *argv[]){
             qaesPadding = (QAESEncryption::Padding)p.split("=")[1].toInt();
             qWarning()<<"qaesPadding:"<<qaesPadding;
         }
+        //加密方式authmode
+        if(p.contains("-qaesKey=")){
+            qaesKey = p.split("=")[1];
+            qWarning()<<"qaesKey:"<<qaesKey;
+        }
+        //加密方式authmode
+        if(p.contains("-qaesDeviation=")){
+            qaesDeviation = p.split("=")[1];
+            qWarning()<<"qaesDeviation:"<<qaesDeviation;
+        }
     }
 }

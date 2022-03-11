@@ -52,6 +52,12 @@ void Socks5Connected::connectSocks5ReadyRead(){
 
     QByteArray byte = localSocket->readAll();
 
+    //解密
+    if(Param::dataEncry->isAes){
+        QAESEncryption aes(Param::dataEncry->qaesEncry,Param::dataEncry->qaesMode,Param::dataEncry->qaesPadding);
+        byte = aes.decode(byte,Param::dataEncry->qaesKey,Param::dataEncry->qaesDeviation);
+    }
+
     remtoSocket->write(byte,byte.length());
     remtoSocket->waitForBytesWritten();
 }
@@ -94,6 +100,12 @@ void Socks5Connected::remtoSocketReadyRead(){
     QTcpSocket * localSocket = (QTcpSocket *)remtoSocket->parent();
 
     QByteArray byte = remtoSocket->readAll();
+
+    //加密
+    if(Param::dataEncry->isAes){
+        QAESEncryption aes(Param::dataEncry->qaesEncry,Param::dataEncry->qaesMode,Param::dataEncry->qaesPadding);
+        byte = aes.encode(byte,Param::dataEncry->qaesKey,Param::dataEncry->qaesDeviation);
+    }
 
     localSocket->write(byte,byte.length());
     localSocket->waitForBytesWritten();

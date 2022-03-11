@@ -52,7 +52,12 @@ void Utils::ReadIni(){
     Param::dataEncry->qaesEncry=(QAESEncryption::Aes)setting->value("DataEncry/qaesEncry").toInt();
     Param::dataEncry->qaesMode=(QAESEncryption::Mode)setting->value("DataEncry/qaesMode").toInt();
     Param::dataEncry->qaesPadding=(QAESEncryption::Padding)setting->value("DataEncry/qaesPadding").toInt();
+    Param::dataEncry->qaesKey=setting->value("DataEncry/qaesKey").toString();
+    Param::dataEncry->qaesDeviation=setting->value("DataEncry/qaesDeviation").toString();
 
     delete setting;
 }
+
+
+
 

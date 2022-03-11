@@ -32,6 +32,17 @@ public:
     QAESEncryption::Padding qaesPadding = QAESEncryption::Padding::PKCS7;
 
     /**
+      加密钥匙
+     * @brief qaesKey
+     */
+    QString qaesKey = "0000000000000000";
+
+    /**
+      偏移量
+     * @brief deviation
+     */
+    QString qaesDeviation = "0000000000000000";
+    /**
       初始化
      * @brief DataEncry::Init
      * @param argc

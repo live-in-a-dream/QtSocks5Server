@@ -56,6 +56,12 @@ void Socks5UDPConnection::udpSocks5ReadyRead(){
 
     QByteArray byte = localSocket->readAll();
 
+    //解密
+    if(Param::dataEncry->isAes){
+        QAESEncryption aes(Param::dataEncry->qaesEncry,Param::dataEncry->qaesMode,Param::dataEncry->qaesPadding);
+        byte = aes.decode(byte,Param::dataEncry->qaesKey,Param::dataEncry->qaesDeviation);
+    }
+
     remtoSocket->writeDatagram(byte,byte.length(),socks5AuthStateed->address,socks5AuthStateed->port);
 }
 
@@ -71,6 +77,12 @@ void Socks5UDPConnection::remtoSocketReadyRead(){
     QByteArray byte;
     byte.reserve(remtoSocket->pendingDatagramSize());
     remtoSocket->readDatagram(byte.data(),byte.size());
+
+    //加密
+    if(Param::dataEncry->isAes){
+        QAESEncryption aes(Param::dataEncry->qaesEncry,Param::dataEncry->qaesMode,Param::dataEncry->qaesPadding);
+        byte = aes.encode(byte,Param::dataEncry->qaesKey,Param::dataEncry->qaesDeviation);
+    }
 
     localSocket->write(byte,byte.length());
     localSocket->waitForBytesWritten();
